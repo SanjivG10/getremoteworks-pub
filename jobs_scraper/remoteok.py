@@ -18,7 +18,9 @@ def get_remote_ok_data(page=1)->List[Job]:
 
     for job in job_list:
         data = (job.find('script', type='application/ld+json'))
+        link_tag = job.find("a")
         if data:
+            link = link_tag.href if link_tag else ""
             data =json.loads(data.text)
             title = data.get("title")
             company = data.get("hiringOrganization").get("name")
@@ -41,7 +43,7 @@ def get_remote_ok_data(page=1)->List[Job]:
             workHours = data.get("workHours")
             benefits = data.get("jobBenefits").split("\n")
 
-            job = Job(title=title,company=company,date_posted=date_posted,description=description,salary=salary,employmentType=employmentType,location=location,workHours=workHours,benefits=benefits)
+            job = Job(title=title,company=company,date_posted=date_posted,description=description,salary=salary,employmentType=employmentType,location=location,workHours=workHours,benefits=benefits,link=link)
 
             jobs.append(job)
 

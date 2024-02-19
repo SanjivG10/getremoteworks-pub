@@ -11,4 +11,5 @@ class Job(BaseModel):
     employmentType: Optional[str]
     location: Optional[str]
     workHours: Optional[str]
+    link: Optional[str]
     benefits: Optional[List[str]]
