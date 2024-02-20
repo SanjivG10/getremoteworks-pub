@@ -37,5 +37,18 @@ JOB_DATA = {
                 "description":".jobList-description"
             } 
         }
+    },
+    "simplyhired": {
+        "link":"https://www.simplyhired.com/search?q=&l=remote",
+        "selectors": {
+            "job_list":'div[data-testid="searchSerpJob"]',
+            "each_content": {
+                "title": "h2" ,
+                "link":'a',
+                "company":'span[data-testid="searchSerpJobLocation"]',
+                "date_posted": "p[data-testid='searchSerpJobDateStamp']",
+                "description":"p[data-testid='searchSerpJobSnippet']"
+            } 
+        }
     }
 }
