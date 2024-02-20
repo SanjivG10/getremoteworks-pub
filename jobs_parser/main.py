@@ -1,6 +1,6 @@
 
 from  pydantic import BaseModel
-from typing import Optional,List
+from typing import Optional,List,Any
 
 class Job(BaseModel):
     title: str = ""
@@ -14,3 +14,4 @@ class Job(BaseModel):
     category: Optional[str] =""
     workHours: Optional[str] = ""
     benefits: Optional[List[str]] = ""
+    meta: Optional[Any]=None

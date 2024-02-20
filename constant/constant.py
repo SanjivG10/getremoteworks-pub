@@ -20,5 +20,22 @@ JOB_DATA = {
                 "link":'li a[href^="/remote-jobs/"]'
             }
         }
+    },
+    "monster": {
+        "link":"https://appsapi.monster.io/jobs-svx-service/v2/monster/search-jobs/samsearch/en-US?apikey=",
+    },
+    "ziprecruiter": {
+        "link":"https://www.ziprecruiter.co.uk/Jobs-/Remote?utm_source=zr_trending_hp&page=",
+        "selectors": {
+            "job_list":"ul.jobList > li",
+            "each_content": {
+                "title": "ul.jobList li strong" ,
+                "link":'ul.jobList a',
+                "company":".jobList-introMeta li:nth-child(1)",
+                "location":".jobList-introMeta li+ li",
+                "date_posted": ".jobList-date",
+                "description":".jobList-description"
+            } 
+        }
     }
 }
