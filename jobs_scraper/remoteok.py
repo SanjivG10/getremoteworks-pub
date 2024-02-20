@@ -49,9 +49,13 @@ def get_remote_ok_data(page=1)->List[Job]:
 
     return jobs 
 
+def get_all_remote_ok_jobs(MAX_PAGE=5)->List[Job]:
+    data = []
+    for page in range(MAX_PAGE):
+        try:
+            jobs = get_remote_ok_data(page)
+        except Exception as e:
+            print(str(e))
 
-
-    
-
-
-
+        data.extend(jobs)
+    return data

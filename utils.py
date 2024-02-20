@@ -8,3 +8,12 @@ def get_html(url):
 
 def is_array(var):
     return isinstance(var,list)
+
+def safe_get(element, attribute):
+    try:
+        if attribute == 'text':
+            return element.text
+        else:
+            return element.get(attribute)
+    except AttributeError:
+        return ""
