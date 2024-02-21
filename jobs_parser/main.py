@@ -8,7 +8,7 @@ class Job(BaseModel):
     date_posted: Optional[str] = ""
     description: Optional[str] = ""
     salary: Optional[str] = ""
-    employmentType: Optional[str] = ""
+    employment_type: Optional[str] = ""
     location: Optional[str] = ""
     link: Optional[str] = ""
     category: Optional[str] =""

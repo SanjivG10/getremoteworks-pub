@@ -32,7 +32,7 @@ def get_remote_ok_data(page=1)->List[Job]:
 
             salary = f'{base_salary.get("currency")}{base_salary.get("value").get("minValue")}-{base_salary.get("value").get("minValue")}'
 
-            employmentType = data.get("employmentType")
+            employment_type = data.get("employment_type")
 
             location_requirement = data.get("applicantLocationRequirements")
 
@@ -43,7 +43,7 @@ def get_remote_ok_data(page=1)->List[Job]:
             workHours = data.get("workHours")
             benefits = data.get("jobBenefits").split("\n")
 
-            job = Job(title=title,company=company,date_posted=date_posted,description=description,salary=salary,employmentType=employmentType,location=location,workHours=workHours,benefits=benefits,link=link)
+            job = Job(title=title,company=company,date_posted=date_posted,description=description,salary=salary,employment_type=employment_type,location=location,workHours=workHours,benefits=benefits,link=link)
 
             jobs.append(job)
 

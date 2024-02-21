@@ -13,7 +13,7 @@ JOB_DATA = {
             "each_content": {
                 "title": ".title" ,
                 "company":".company:nth-child(1)",
-                "employmentType": "br+ .company",
+                "employment_type": "br+ .company",
                 "location":".region",
                 "date_posted": "time",
                 "category":"h2 a:nth-child(1)",
@@ -48,6 +48,19 @@ JOB_DATA = {
                 "company":'span[data-testid="searchSerpJobLocation"]',
                 "date_posted": "p[data-testid='searchSerpJobDateStamp']",
                 "description":"p[data-testid='searchSerpJobSnippet']"
+            } 
+        }
+    },
+    "euremotejobs":{
+        "link": "https://euremotejobs.com/jm-ajax/get_listings/",
+        "selectors":{
+            "job_list": "li.job_listing",
+            "each_content": {
+                "title": ".job_listing-title" ,
+                "link":'.job_listing-clickbox',
+                "company":'.job_listing-company',
+                "date_posted": ".job_listing-date",
+                "employment_type":".job_listing-type"
             } 
         }
     }

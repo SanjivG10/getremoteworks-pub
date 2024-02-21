@@ -1,5 +1,5 @@
 from constant.constant import JOB_DATA
-from utils import get_post_data,generate_random_string
+from utils import get_post_data
 from jobs_parser.main import Job
 from typing import List
 from utils import monster_headers

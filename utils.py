@@ -9,7 +9,7 @@ def generate_random_string(length:int)->str:
     random_string = ''.join(random.choice(characters) for i in range(length))
     return random_string
 
-def get_html(url):
+def get_html(url,headers=headers):
     html = requests.get(url,headers=headers).text
     return html 
 

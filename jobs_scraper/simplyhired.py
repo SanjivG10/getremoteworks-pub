@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from constant.constant import JOB_DATA
 from utils import get_html,safe_get
+from constant.headers import simplyhired_headers
 from jobs_parser.main import Job
 from typing import List
 
@@ -10,7 +11,7 @@ def get_job_link_from_page()->str:
 
 #  this has to be handled using puppeteer
 def get_simplyhired_data(url,page=1)->List[Job]:
-    html = get_html(url) 
+    html = get_html(url,simplyhired_headers) 
 
     soup = BeautifulSoup(html,"html.parser")
     job_list= soup.select(JOB_DATA["simplyhired"]["selectors"]["job_list"])
@@ -19,7 +20,8 @@ def get_simplyhired_data(url,page=1)->List[Job]:
     jobs:List[Job] = []
     job_list= soup.select(JOB_DATA["simplyhired"]["selectors"]["job_list"])
 
-    next_page =safe_get(soup.select(f'a[data-testid="paginationBlock{page+1}"]'),'href')
+    next_page_selector = f'a[data-testid="paginationBlock{page+1}"]'
+    next_page =safe_get(soup.select_one(f'{next_page_selector}'),'href')
 
     for job in job_list:
         title = safe_get(job.select_one(selectors["title"]), 'text')
@@ -41,12 +43,12 @@ def get_all_simplyhired_data(MAX_PAGE=5)->List[Job]:
         try:
             print("Trying",current_url)
             jobs,next = get_simplyhired_data(current_url,page)
-            if not next:
-                break
+            data.extend(jobs)
             current_url = next 
+            if not current_url:
+                break
         except Exception as e:
             print(str(e))
-        data.extend(jobs)
     return data
 
 
