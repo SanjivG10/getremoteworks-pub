@@ -60,7 +60,8 @@ JOB_DATA = {
                 "link":'.job_listing-clickbox',
                 "company":'.job_listing-company',
                 "date_posted": ".job_listing-date",
-                "employment_type":".job_listing-type"
+                "employment_type":".job_listing-type",
+                "location":".job_listing-location"
             } 
         }
     }

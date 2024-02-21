@@ -31,9 +31,10 @@ def get_euremotejobs_data(url,page=1)->List[Job]:
         link_element = job.select_one(selectors["link"])  
         link = link_element['href'] if link_element else None  
         company = safe_get(job.select_one(selectors["company"]), 'text')
+        location = safe_get(job.select_one(selectors["location"]), 'text')
         date_posted = safe_get(job.select_one(selectors["date_posted"]), 'text').replace("Posted","").strip()
         employment_type = safe_get(job.select_one(selectors["employment_type"]), 'text')
-        job = Job(title=title,company=company,date_posted=date_posted,link=link,employment_type=employment_type)
+        job = Job(title=title,company=company,date_posted=date_posted,link=link,employment_type=employment_type,location=location)
         jobs.append(job)
 
     return jobs

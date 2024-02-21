@@ -4,5 +4,3 @@ from jobs_scraper.monster import get_all_monster_data
 from jobs_scraper.ziprecruiter import get_all_ziprecruiter_data
 from jobs_scraper.simplyhired import get_all_simplyhired_data
 from jobs_scraper.euremotejobs import get_all_euremotejobs_data
-
-
