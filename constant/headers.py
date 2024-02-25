@@ -19,7 +19,7 @@ simplyhired_headers = {
     'Connection': 'keep-alive',
     'Upgrade-Insecure-Requests': '1',
     'Cache-Control': 'max-age=0',
-    'Cookie':'__cf_bm=YIFvYpahw7XctjKWm_dLBfWnn_yXS09cyvTla5K9gzU-1708487639-1.0-AcbkAYJ7ieNec48x8EqDHN03gBllksvvTzamH13g7jQwWSBC4QSrFHTN2TiHX8e/NCEmGZutSi1HTHgBtRENvK0=; csrf=XsJQ_FlEt3qfV65noELbJ6d9_bMFYZm5hqJ2c_myeO1h1cQuEZyhHaIN6SEgTvxvoKk2QBGyoRg0AD6eHcit; rq=%5B%22q%3D%26l%3Dremote%26ts%3D1708487677029%22%5D; shk=1hn3sa94emknq801'
+    'Cookie':'__cf_bm=GxcDKESQW41eTR3cx6td7fIEoOWrS.W._EVPnyBIngQ-1708682674-1.0-AR2TrnL77rk2oRLt39ED97fN4HiKT9xWkKKvoAXcDB4xvm9a/T0XR/8rk1EA33/EiWlYFKZwdTskul2nUlvSjhc=; csrf=7DxDBM9HRk_I2B4Vx4YjuD7XjmD4UU3Nt9fe-SVQY45-wSaNRgleYs7JQ6e9KflCOayn1_LGRKytHeCF3AaS; rq=%5B%22q%3D%26l%3Dremote%26ts%3D1708682673470%22%5D; shk=1hn3sa94emknq801'
 }
 
 monster_headers = {

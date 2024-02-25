@@ -20,7 +20,7 @@ def get_remote_ok_data(page=1)->List[Job]:
         data = (job.find('script', type='application/ld+json'))
         link_tag = job.find("a")
         if data:
-            link = link_tag.href if link_tag else ""
+            link = link_tag["href"] if link_tag else ""
             data =json.loads(data.text)
             title = data.get("title")
             company = data.get("hiringOrganization").get("name")
@@ -41,12 +41,12 @@ def get_remote_ok_data(page=1)->List[Job]:
             else:
                 location = location_requirement.get("name")
             workHours = data.get("workHours")
-            benefits = data.get("jobBenefits").split("\n")
+            benefits = data.get("jobBenefits")
 
-            job = Job(title=title,company=company,date_posted=date_posted,description=description,salary=salary,employment_type=employment_type,location=location,workHours=workHours,benefits=benefits,link=link)
+            job = Job(title=title,company=company,date_posted=date_posted,description="",salary=salary,employment_type=employment_type,location=location,workHours=workHours,benefits="",link=link,source="remoteok")
 
             jobs.append(job)
-
+        break
     return jobs 
 
 def get_all_remote_ok_jobs(MAX_PAGE=5)->List[Job]:
@@ -54,8 +54,8 @@ def get_all_remote_ok_jobs(MAX_PAGE=5)->List[Job]:
     for page in range(MAX_PAGE):
         try:
             jobs = get_remote_ok_data(page)
+            data.extend(jobs)
         except Exception as e:
             print(str(e))
 
-        data.extend(jobs)
     return data

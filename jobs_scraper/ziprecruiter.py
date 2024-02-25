@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from constant.constant import JOB_DATA
-import json
-from utils import get_html,safe_get
+from utils import get_html,safe_get,convert_to_date
 from jobs_parser.main import Job
 from typing import List
 
@@ -24,9 +23,9 @@ def get_ziprecruiter_data(page=1)->List[Job]:
         link = link_element['href'] if link_element else None  
         company = safe_get(job.select_one(selectors["company"]), 'text')
         location = safe_get(job.select_one(selectors["location"]), 'text')
-        date_posted = safe_get(job.select_one(selectors["date_posted"]), 'text')
+        date_posted = convert_to_date(safe_get(job.select_one(selectors["date_posted"]), 'text'))
         description = safe_get(job.select_one(selectors["description"]), 'text')
-        job = Job(title=title,company=company,date_posted=date_posted,location=location,link=link,description=description)
+        job = Job(title=title,company=company,date_posted=date_posted,location=location,link=link,description=description,source="ziprecruiter")
 
         jobs.append(job)
 

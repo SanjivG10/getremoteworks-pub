@@ -1,5 +1,5 @@
 from constant.constant import JOB_DATA
-from utils import get_post_data
+from utils import get_post_data,convert_date_str_to_date
 from jobs_parser.main import Job
 from typing import List
 from utils import monster_headers
@@ -61,10 +61,12 @@ def get_monster_current_page_data(page:int)->List[Job]:
 
         title = job_posting["title"]
         company =  job_posting["hiringOrganization"]["name"]
-        date_posted = job_posting["datePosted"]
+        date_posted =  convert_date_str_to_date(job_posting["datePosted"])
         description = job_posting["description"]
+        # descritpion is also long, so discarding it too
         link= job_posting["url"]
-        job = Job(title=title,company=company,date_posted=date_posted,description=description,link=link,meta=each_job)
+        job = Job(title=title,company=company,date_posted=date_posted,description="",link=link,meta=None,source="monster")
+        # job = Job(title=title,company=company,date_posted=date_posted,description=description,link=link,meta=each_job,source="monster")
         jobs.append(job)
 
     return jobs 

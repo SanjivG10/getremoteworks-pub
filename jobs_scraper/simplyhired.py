@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from constant.constant import JOB_DATA
-from utils import get_html,safe_get
+from utils import get_html,safe_get,parse_relative_time
 from constant.headers import simplyhired_headers
 from jobs_parser.main import Job
 from typing import List
@@ -28,9 +28,9 @@ def get_simplyhired_data(url,page=1)->List[Job]:
         link_element = job.select_one(selectors["link"])  
         link = link_element['href'] if link_element else None  
         company = safe_get(job.select_one(selectors["company"]), 'text')
-        date_posted = safe_get(job.select_one(selectors["date_posted"]), 'text')
+        date_posted = parse_relative_time(safe_get(job.select_one(selectors["date_posted"]), 'text'))
         description = safe_get(job.select_one(selectors["description"]), 'text')
-        job = Job(title=title,company=company,date_posted=date_posted,link=link,description=description)
+        job = Job(title=title,company=company,date_posted=date_posted,link=link,description=description,source='simplyhired')
 
         jobs.append(job)
 
@@ -41,7 +41,6 @@ def get_all_simplyhired_data(MAX_PAGE=5)->List[Job]:
     current_url  = get_job_link_from_page() 
     for page in range(1,MAX_PAGE+1):
         try:
-            print("Trying",current_url)
             jobs,next = get_simplyhired_data(current_url,page)
             data.extend(jobs)
             current_url = next 
