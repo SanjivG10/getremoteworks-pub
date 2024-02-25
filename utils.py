@@ -34,18 +34,23 @@ def safe_get(element, attribute):
 def convert_to_date(date_str, year=None):
     date_formats = ["%d %b", "%b %d"]
     
+    current_date = datetime.now().date()
+    current_year = current_date.year
+    
     if year is None:
-        year = datetime.now().year
+        year = current_year
     
     for date_format in date_formats:
         try:
             full_date_str = f"{date_str} {year}"
             date_obj = datetime.strptime(full_date_str, f"{date_format} %Y").date()
-            return date_obj  # Return the date object if parsing is successful
+            
+            if date_obj > current_date:
+                date_obj = datetime.strptime(f"{date_str} {year - 1}", f"{date_format} %Y").date()
+            
+            return date_obj
         except ValueError:
-            continue
-    
-    print(f"Error: '{date_str}' does not match expected formats.")
+            continue  
     return None
 
 def convert_date_str_to_date(date_str:str):

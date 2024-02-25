@@ -12,9 +12,6 @@ db = client.getremoteworks
 
 collection = db.Job
 
-# filter = {'source': 'ziprecruiter'}
-# collection.delete_many(filter)
-
 def post_jobs(jobs:List[Job]):
     jobs = [json.loads(job.model_dump_json()) for job in jobs]
     for job in jobs:
