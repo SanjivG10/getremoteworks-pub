@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from constant.constant import JOB_DATA
-from utils import get_html,safe_get,parse_relative_time
+from utils import safe_get,parse_relative_time,get_html_with_headers_and_cookies
 from constant.headers import simplyhired_headers
 from jobs_parser.main import Job
 from typing import List
@@ -8,11 +8,9 @@ from typing import List
 def get_job_link_from_page()->str:
     return JOB_DATA["simplyhired"]["link"] 
 
-
 #  this has to be handled using puppeteer
 def get_simplyhired_data(url,page=1)->List[Job]:
-    html = get_html(url,simplyhired_headers) 
-
+    html = get_html_with_headers_and_cookies(url,simplyhired_headers) 
     soup = BeautifulSoup(html,"html.parser")
     job_list= soup.select(JOB_DATA["simplyhired"]["selectors"]["job_list"])
     selectors = JOB_DATA["simplyhired"]["selectors"]["each_content"]

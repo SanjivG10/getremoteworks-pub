@@ -33,7 +33,7 @@ def get_ziprecruiter_data(page=1)->List[Job]:
 
 def get_all_ziprecruiter_data(MAX_PAGE=5)->List[Job]:
     data = []
-    for page in range(MAX_PAGE):
+    for page in range(1,MAX_PAGE+1):
         try:
             jobs = get_ziprecruiter_data(page)
         except Exception as e:

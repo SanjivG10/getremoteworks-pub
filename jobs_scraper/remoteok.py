@@ -8,8 +8,7 @@ from typing import List
 def get_job_link_from_page(page:int)->str:
     return JOB_DATA["remote_ok"]["link"] + str(page*10)
 
-def get_remote_ok_data(page=1)->List[Job]:
-    url = get_job_link_from_page(page)
+def get_remote_ok_data(url:str)->List[Job]:
     html = get_html(url) 
     soup = BeautifulSoup(html,"html.parser")
     job_list= soup.find_all(JOB_DATA["remote_ok"]["selectors"]["job_list"])
@@ -26,7 +25,6 @@ def get_remote_ok_data(page=1)->List[Job]:
             company = data.get("hiringOrganization").get("name")
 
             date_posted = data.get("datePosted")
-            description = data.get("description")
 
             base_salary = data.get("baseSalary")
 
@@ -41,17 +39,16 @@ def get_remote_ok_data(page=1)->List[Job]:
             else:
                 location = location_requirement.get("name")
             workHours = data.get("workHours")
-            benefits = data.get("jobBenefits")
 
             job = Job(title=title,company=company,date_posted=date_posted,description="",salary=salary,employment_type=employment_type,location=location,workHours=workHours,benefits="",link=link,source="remoteok")
 
             jobs.append(job)
-        break
     return jobs 
 
-def get_all_remote_ok_jobs(MAX_PAGE=5)->List[Job]:
+def get_all_remote_ok_jobs()->List[Job]:
     data = []
-    for page in range(MAX_PAGE):
+    pages = ["https://remoteok.com/remote-nodejs-jobs","https://remoteok.com/remote-dev-jobs","https://remoteok.com/remote-backend-jobs","https://remoteok.com/remote-react-jobs","https://remoteok.com/remote-full-stack-jobs"]
+    for page in pages:
         try:
             jobs = get_remote_ok_data(page)
             data.extend(jobs)

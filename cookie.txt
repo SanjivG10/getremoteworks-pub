@@ -1,0 +1,6 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
+.simplyhired.com	TRUE	/	TRUE	1709318108	__cf_bm	Qu0reXNCfkAHKVxXKpH5857ZZe3u.iByUL38vrzh7iY-1709316308-1.0.1.1-6zLnf401c0_3XiS0EOeGEhnk8biRPFVnD87ut9FDKKnD.2YyeVQCrYANBlhcqJV7BBHxQE0DXD8IGkVG3DuZAQ
+www.simplyhired.com	FALSE	/	FALSE	1740852545	rq	%5B%22q%3Dfull%2Bstack%2Bfrontend%2Bbackend%26l%3Dremote%26ts%3D1709316544601%22%2C%22q%3D%26l%3Dremote%26ts%3D1709316333988%22%5D

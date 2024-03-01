@@ -10,6 +10,7 @@ JOB_DATA = {
     "weworkremotely": {
         "link":"https://weworkremotely.com",
         "selectors": {
+            "main_container":"article",
             "job_list":"article ul li",
             "each_content": {
                 "title": ".title" ,
@@ -26,7 +27,7 @@ JOB_DATA = {
         "link":"https://appsapi.monster.io/jobs-svx-service/v2/monster/search-jobs/samsearch/en-US?apikey=",
     },
     "ziprecruiter": {
-        "link":"https://www.ziprecruiter.co.uk/Jobs-/Remote?utm_source=zr_trending_hp&page=",
+        "link":"https://www.ziprecruiter.co.uk/jobs/search?l=remote&q=full+stack+frontend+backend&remote=full",
         "selectors": {
             "job_list":"ul.jobList > li",
             "each_content": {
@@ -40,7 +41,7 @@ JOB_DATA = {
         }
     },
     "simplyhired": {
-        "link":"https://www.simplyhired.com/search?q=&l=remote",
+        "link":"https://www.simplyhired.com/search?q=full+stack+frontend+backend&l=remote",
         "selectors": {
             "job_list":'div[data-testid="searchSerpJob"]',
             "each_content": {

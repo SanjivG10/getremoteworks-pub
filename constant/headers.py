@@ -19,7 +19,7 @@ simplyhired_headers = {
     'Connection': 'keep-alive',
     'Upgrade-Insecure-Requests': '1',
     'Cache-Control': 'max-age=0',
-    'Cookie':'__cf_bm=GxcDKESQW41eTR3cx6td7fIEoOWrS.W._EVPnyBIngQ-1708682674-1.0-AR2TrnL77rk2oRLt39ED97fN4HiKT9xWkKKvoAXcDB4xvm9a/T0XR/8rk1EA33/EiWlYFKZwdTskul2nUlvSjhc=; csrf=7DxDBM9HRk_I2B4Vx4YjuD7XjmD4UU3Nt9fe-SVQY45-wSaNRgleYs7JQ6e9KflCOayn1_LGRKytHeCF3AaS; rq=%5B%22q%3D%26l%3Dremote%26ts%3D1708682673470%22%5D; shk=1hn3sa94emknq801'
+    'Cookie':'__cf_bm=o5RynrsprGKMoHIn_ApKuM6soz8R012UbxK.0jj8tqE-1709316334-1.0.1.1-erH9NS9xX6w6VkuFBzp03EIfNpv4ugPHLM.oSkQcS77_nZtDHW_TEs_cmjmfN8FGLbF4gWFh37Sn_RIpOZio0A; csrf=CNH6JGRfXRp3I-cTP9Bl2GLlBScSUElkFnv_n1urUUu5mEj0pzGXjKIYEe0MZQs0AQuV1vhhsHWNwnsarzsK; rq=%5B%22q%3D%26l%3Dremote%26ts%3D1709316333988%22%5D; shk=1hn3sa94emknq801'
 }
 
 monster_headers = {
@@ -38,5 +38,23 @@ monster_headers = {
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+}
+
+euremotejobs_headers = {
+    'authority': 'euremotejobs.com',
+    'accept': '*/*',
+    'accept-language': 'en-US,en;q=0.9',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'dnt': '1',
+    'origin': 'https://euremotejobs.com',
+    'referer': 'https://euremotejobs.com/',
+    'sec-ch-ua': '"Not(A:Brand";v="24", "Chromium";v="122"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36',
+    'x-requested-with': 'XMLHttpRequest',
 }
 

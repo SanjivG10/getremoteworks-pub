@@ -3,8 +3,10 @@ from constant.headers import headers,monster_headers
 from datetime import datetime,timedelta
 import random
 import string
-import re
 import dateparser
+import os
+from http.cookiejar import MozillaCookieJar
+
 
 def generate_random_string(length:int)->str:
     characters = string.ascii_letters + string.digits
@@ -12,11 +14,15 @@ def generate_random_string(length:int)->str:
     return random_string
 
 def get_html(url,headers=headers):
-    html = requests.get(url,headers=headers).text
+    session = requests.Session()
+    html = session.get(url,headers=headers).text
     return html 
 
-def get_post_data(url,data,headers=monster_headers):
-    data = requests.post(url,json=data,headers=headers)
+def get_post_data(url,data,headers=monster_headers,use_data=False):
+    if use_data:
+        data = requests.post(url,data=data,headers=headers)
+    else:
+        data = requests.post(url,json=data,headers=headers)
     return data.json()
 
 def is_array(var):
@@ -56,8 +62,6 @@ def convert_to_date(date_str, year=None):
 def convert_date_str_to_date(date_str:str):
     return datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%S.%fZ")
 
-
-
 def parse_relative_time(time_string):
     try:
         date_obj = dateparser.parse(time_string, settings={'PREFER_DATES_FROM': 'past'})
@@ -67,7 +71,18 @@ def parse_relative_time(time_string):
 
 
 
+def get_html_with_headers_and_cookies(url, headers=None):
+    s = requests.Session()
+    cookie_file = 'cookie.txt'
+    s.cookies = MozillaCookieJar(cookie_file)
     
-
+    if not os.path.exists(cookie_file):
+        res = s.get(url, headers=headers)
+        s.cookies.save()
+    else:
+        s.cookies.load(ignore_discard=True, ignore_expires=True)
+        res = s.get(url, headers=headers)
+        s.cookies.save(ignore_discard=True, ignore_expires=True)
     
+    return res.text
 

@@ -14,7 +14,7 @@ def get_monster_current_page_data(page:int)->List[Job]:
 
     json_data = {
     'jobQuery': {
-        'query': '',
+        'query': 'fullstack backend frontend',
         'locations': [
             {
                 'country': 'us',
@@ -73,7 +73,7 @@ def get_monster_current_page_data(page:int)->List[Job]:
 
 def get_all_monster_data(MAX_PAGE=5):
     jobs_data:List[Job] = []
-    for page in range(MAX_PAGE):
+    for page in range(MAX_PAGE+1):
         try:
             jobs = get_monster_current_page_data(page)
             jobs_data.extend(jobs)
