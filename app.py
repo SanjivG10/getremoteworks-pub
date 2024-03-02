@@ -57,7 +57,7 @@ def post_all_jobs(companies:List[str]):
 
 print("Posting Jobs...")
 companies = ["monster","rapidapi","remoteok","weworkremotely","ziprecruiter","euremotejobs"]
-post_all_jobs()
+post_all_jobs(companies)
 
 
 
